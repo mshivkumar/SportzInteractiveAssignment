@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../models/match.dart';
-import '../models/officials.dart';
-import '../models/series.dart';
-import '../models/venue.dart';
+import 'match.dart';
+import 'officials.dart';
+import 'series.dart';
+import 'venue.dart';
 
 @immutable
 class Matchdetail {
