@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:equatable/equatable.dart';
 
 @immutable
 class Match {
@@ -86,19 +85,6 @@ class Match {
     return 'Match(livecoverage: $livecoverage, id: $id, code: $code, league: $league, number: $number, type: $type, date: $date, time: $time, offset: $offset, daynight: $daynight)';
   }
 
-  Match clone() => Match(
-        livecoverage: livecoverage,
-        id: id,
-        code: code,
-        league: league,
-        number: number,
-        type: type,
-        date: date,
-        time: time,
-        offset: offset,
-        daynight: daynight,
-      );
-
   Match copyWith({
     String? livecoverage,
     String? id,
@@ -123,32 +109,4 @@ class Match {
         offset: offset ?? this.offset,
         daynight: daynight ?? this.daynight,
       );
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is Match &&
-          livecoverage == other.livecoverage &&
-          id == other.id &&
-          code == other.code &&
-          league == other.league &&
-          number == other.number &&
-          type == other.type &&
-          date == other.date &&
-          time == other.time &&
-          offset == other.offset &&
-          daynight == other.daynight;
-
-  @override
-  int get hashCode =>
-      livecoverage.hashCode ^
-      id.hashCode ^
-      code.hashCode ^
-      league.hashCode ^
-      number.hashCode ^
-      type.hashCode ^
-      date.hashCode ^
-      time.hashCode ^
-      offset.hashCode ^
-      daynight.hashCode;
 }
