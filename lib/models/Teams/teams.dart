@@ -27,7 +27,8 @@ class Teams extends Equatable {
       teamsItem[teamObject['Name_Short']] = Team(
         nameFull: teamObject['Name_Full'],
         nameShort: teamObject['Name_Short'],
-        players: getPlayers(json: teamObject['Players'] as Map<String, dynamic>),
+        players:
+            getPlayers(json: teamObject['Players'] as Map<String, dynamic>),
       );
     });
 
@@ -35,10 +36,14 @@ class Teams extends Equatable {
   }
 
   factory Teams.fromJson(Map<String, Team> json) => Teams(
-        teamIndia: Team.fromJson(json['IND'] as Map<String, dynamic>),
-        teamNewZealand: Team.fromJson(json['NZ'] as Map<String, dynamic>),
-        teamPakistan: Team.fromJson(json['PAK'] as Map<String, dynamic>),
-        teamSouthAfrica: Team.fromJson(json['SA'] as Map<String, dynamic>),
+        teamIndia: json['IND'] ?? Team.initial(),
+        //Team.fromJson(json['IND'] as Map<String, dynamic>),
+        teamNewZealand: json['NZ'] ?? Team.initial(),
+        //Team.fromJson(json['NZ'] as Map<String, dynamic>),
+        teamPakistan: json['PAK'] ?? Team.initial(),
+        //Team.fromJson(json['PAK'] as Map<String, dynamic>),
+        teamSouthAfrica: json['SA'] ??
+            Team.initial(), //Team.fromJson(json['SA'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {

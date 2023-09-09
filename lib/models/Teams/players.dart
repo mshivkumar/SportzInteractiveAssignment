@@ -41,8 +41,8 @@ class Players extends Equatable {
       playersItem[playerObject['Position']] = Player(
         position: playerObject['Position'],
         nameFull: playerObject['Name_Full'],
-        isCaptain: playerObject['Iscaptain'],
-        isKeeper: playerObject['Iskeeper'],
+        isCaptain: playerObject['Iscaptain'] ?? false,
+        isKeeper: playerObject['Iskeeper'] ?? false,
         batting:
             Batting.fromJson(playerObject['Batting'] as Map<String, dynamic>),
         bowling:
@@ -54,17 +54,29 @@ class Players extends Equatable {
   }
 
   factory Players.fromJson(Map<String, Player> json) => Players(
-        playerOne: Player.fromJson(json['1'] as Map<String, dynamic>),
-        playerTwo: Player.fromJson(json['2'] as Map<String, dynamic>),
-        playerThree: Player.fromJson(json['3'] as Map<String, dynamic>),
-        playerFour: Player.fromJson(json['4'] as Map<String, dynamic>),
-        playerFive: Player.fromJson(json['5'] as Map<String, dynamic>),
-        playerSix: Player.fromJson(json['6'] as Map<String, dynamic>),
-        playerSeven: Player.fromJson(json['7'] as Map<String, dynamic>),
-        playerEight: Player.fromJson(json['8'] as Map<String, dynamic>),
-        playerNine: Player.fromJson(json['9'] as Map<String, dynamic>),
-        playerTen: Player.fromJson(json['10'] as Map<String, dynamic>),
-        playerEleven: Player.fromJson(json['12'] as Map<String, dynamic>),
+        playerOne: json['1'] ?? Player.initial(),
+        //Player.fromJson(json['1'] as Map<String, dynamic>),
+        playerTwo: json['2'] ?? Player.initial(),
+        //Player.fromJson(json['2'] as Map<String, dynamic>),
+        playerThree: json['3'] ?? Player.initial(),
+        //Player.fromJson(json['3'] as Map<String, dynamic>),
+        playerFour: json['4'] ?? Player.initial(),
+        //Player.fromJson(json['4'] as Map<String, dynamic>),
+        playerFive: json['5'] ?? Player.initial(),
+        //Player.fromJson(json['5'] as Map<String, dynamic>),
+        playerSix: json['6'] ?? Player.initial(),
+        //Player.fromJson(json['6'] as Map<String, dynamic>),
+        playerSeven: json['7'] ?? Player.initial(),
+        //Player.fromJson(json['7'] as Map<String, dynamic>),
+        playerEight: json['8'] ?? Player.initial(),
+        //Player.fromJson(json['8'] as Map<String, dynamic>),
+        playerNine: json['9'] ?? Player.initial(),
+        //Player.fromJson(json['9'] as Map<String, dynamic>),
+        playerTen: json['10'] ?? Player.initial(),
+        //Player.fromJson(json['10'] as Map<String, dynamic>),
+        playerEleven: json['11'] ??
+            Player
+                .initial(), //Player.fromJson(json['12'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {
