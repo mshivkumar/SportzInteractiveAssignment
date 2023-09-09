@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class Series {
+class Series extends Equatable {
   final String id;
   final String name;
   final String status;

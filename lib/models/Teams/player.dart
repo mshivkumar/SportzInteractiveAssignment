@@ -1,11 +1,11 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:sportz_interactive_assignment/models/Teams/players.dart';
 
 import 'batting.dart';
 import 'bowling.dart';
 
 @immutable
-class Player {
+class Player extends Equatable {
   final String position;
   final String nameFull;
   final bool isCaptain;

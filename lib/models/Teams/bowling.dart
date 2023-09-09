@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class Bowling {
+class Bowling extends Equatable {
   final String style;
   final String average;
   final String economyrate;

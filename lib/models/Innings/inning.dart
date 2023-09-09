@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 import 'batsman.dart';
@@ -7,7 +8,7 @@ import 'partnership_current.dart';
 import 'power_play.dart';
 
 @immutable
-class Inning {
+class Inning extends Equatable {
   final String number;
   final String battingteam;
   final String total;

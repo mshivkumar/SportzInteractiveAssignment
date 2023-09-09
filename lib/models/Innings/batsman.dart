@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class Batsman {
+class Batsman extends Equatable {
   final String batsman;
   final String runs;
   final String balls;

@@ -1,9 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'player.dart';
 import 'players.dart';
 
 @immutable
-class Team {
+class Team extends Equatable {
   final String nameFull;
   final String nameShort;
   final Players players;

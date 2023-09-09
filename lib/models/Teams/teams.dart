@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 import 'player.dart';
@@ -5,7 +6,7 @@ import 'players.dart';
 import 'team.dart';
 
 @immutable
-class Teams {
+class Teams extends Equatable {
   final Team teamIndia;
   final Team teamNewZealand;
   final Team teamPakistan;
@@ -26,7 +27,7 @@ class Teams {
       teamsItem[teamObject['Name_Short']] = Team(
         nameFull: teamObject['Name_Full'],
         nameShort: teamObject['Name_Short'],
-        players: getPlayers(json: teamObject['Players']),
+        players: getPlayers(json: teamObject['Players'] as Map<String, dynamic>),
       );
     });
 

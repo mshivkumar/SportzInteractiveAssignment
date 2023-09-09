@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 import 'batting.dart';
@@ -5,7 +6,7 @@ import 'bowling.dart';
 import 'player.dart';
 
 @immutable
-class Players {
+class Players extends Equatable {
   final Player playerOne;
   final Player playerTwo;
   final Player playerThree;

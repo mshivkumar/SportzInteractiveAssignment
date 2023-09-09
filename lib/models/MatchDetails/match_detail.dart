@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 import 'match.dart';
@@ -6,7 +7,7 @@ import 'series.dart';
 import 'venue.dart';
 
 @immutable
-class Matchdetail {
+class Matchdetail extends Equatable {
   final String teamHome;
   final String teamAway;
   final Match match;

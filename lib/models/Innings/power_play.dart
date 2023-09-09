@@ -1,6 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-class PowerPlay {
+@immutable
+class PowerPlay extends Equatable {
   final String pP1;
   final String pP2;
 
