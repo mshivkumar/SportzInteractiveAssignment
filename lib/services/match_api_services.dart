@@ -6,18 +6,18 @@ import '../constants/constants.dart';
 import '../exceptions/match_exception.dart';
 import '../models/match_parent.dart';
 
-
 class MatchApiServices {
   final http.Client httpClient;
+
   MatchApiServices({
     required this.httpClient,
   });
 
-  Future<MatchParent> getMatchDetails() async {
+  Future<MatchParent> getMatchDetails({required String apiPath}) async {
     final Uri uri = Uri(
       scheme: 'https',
       host: kApiHost,
-      path: '/nzin01312019187360.json',
+      path: apiPath,
     );
 
     try {
@@ -36,6 +36,21 @@ class MatchApiServices {
       final matchDetails = MatchParent.fromJson(responseBody);
 
       return matchDetails;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<MatchParent>> getMatchDetailsList() async {
+    try {
+      List<MatchParent> matchDetailsList = [];
+      MatchParent elementOne = await getMatchDetails(apiPath: kApiPathOne);
+      MatchParent elementTwo = await getMatchDetails(apiPath: kApiPathTwo);
+
+      matchDetailsList.add(elementOne);
+      matchDetailsList.add(elementTwo);
+
+      return matchDetailsList;
     } catch (e) {
       rethrow;
     }

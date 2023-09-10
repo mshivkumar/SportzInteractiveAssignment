@@ -7,24 +7,22 @@ import 'team.dart';
 
 @immutable
 class Teams extends Equatable {
-  final Team teamIndia;
-  final Team teamNewZealand;
-  final Team teamPakistan;
-  final Team teamSouthAfrica;
+  final Team teamOne;
+  final Team teamTwo;
 
   const Teams({
-    required this.teamIndia,
-    required this.teamNewZealand,
-    required this.teamPakistan,
-    required this.teamSouthAfrica,
+    required this.teamOne,
+    required this.teamTwo,
   });
 
   static Map<String, Team> alteredMap(Map<String, dynamic> json) {
     // Create a map to store players with Position as the key
     Map<String, Team> teamsItem = {};
+    int i = 0;
 
     json.forEach((teamKey, teamObject) {
-      teamsItem[teamObject['Name_Short']] = Team(
+      i++;
+      teamsItem[i.toString()] = Team(
         nameFull: teamObject['Name_Full'],
         nameShort: teamObject['Name_Short'],
         players:
@@ -36,56 +34,41 @@ class Teams extends Equatable {
   }
 
   factory Teams.fromJson(Map<String, Team> json) => Teams(
-        teamIndia: json['IND'] ?? Team.initial(),
+        teamOne: json['1'] ?? Team.initial(),
         //Team.fromJson(json['IND'] as Map<String, dynamic>),
-        teamNewZealand: json['NZ'] ?? Team.initial(),
-        //Team.fromJson(json['NZ'] as Map<String, dynamic>),
-        teamPakistan: json['PAK'] ?? Team.initial(),
-        //Team.fromJson(json['PAK'] as Map<String, dynamic>),
-        teamSouthAfrica: json['SA'] ??
-            Team.initial(), //Team.fromJson(json['SA'] as Map<String, dynamic>),
+        teamTwo: json['2'] ?? Team.initial(),
       );
 
   Map<String, dynamic> toJson() => {
-        'IND': teamIndia.toJson(),
-        'NZ': teamNewZealand.toJson(),
-        'PAK': teamPakistan.toJson(),
-        'SA': teamSouthAfrica.toJson(),
+        '1': teamOne.toJson(),
+        '2': teamTwo.toJson(),
       };
 
   factory Teams.initial() => Teams(
-        teamIndia: Team.initial(),
-        teamNewZealand: Team.initial(),
-        teamPakistan: Team.initial(),
-        teamSouthAfrica: Team.initial(),
+        teamOne: Team.initial(),
+        teamTwo: Team.initial(),
       );
 
   @override
   List<Object> get props {
     return [
-      teamIndia,
-      teamNewZealand,
-      teamPakistan,
-      teamSouthAfrica,
+      teamOne,
+      teamTwo,
     ];
   }
 
   @override
   String toString() {
-    return 'Teams(teamIndia: $teamIndia, teamNewZealand: $teamNewZealand, teamPakistan: $teamPakistan, teamSouthAfrica: $teamSouthAfrica)';
+    return 'Teams(teamOne: $teamOne, teamTwo: $teamTwo)';
   }
 
   Teams copyWith({
-    Team? teamIndia,
-    Team? teamNewZealand,
-    Team? teamPakistan,
-    Team? teamSouthAfrica,
+    Team? teamOne,
+    Team? teamTwo,
   }) =>
       Teams(
-        teamIndia: teamIndia ?? this.teamIndia,
-        teamNewZealand: teamNewZealand ?? this.teamNewZealand,
-        teamPakistan: teamPakistan ?? this.teamPakistan,
-        teamSouthAfrica: teamSouthAfrica ?? this.teamSouthAfrica,
+        teamOne: teamOne ?? this.teamOne,
+        teamTwo: teamTwo ?? this.teamTwo,
       );
 
   static Players getPlayers({required Map<String, dynamic> json}) {
