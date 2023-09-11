@@ -3,6 +3,7 @@ import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
+import 'providers/current_selection/current_selection_provider.dart';
 import 'providers/match_details_list/match_details_list_provider.dart';
 import 'repositories/match_repository.dart';
 import 'screens/home_page.dart';
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
         ),
         StateNotifierProvider<MatchDetailsListProvider, MatchDetailsListState>(
           create: (context) => MatchDetailsListProvider(),
+        ),
+        StateNotifierProvider<CurrentSelectionProvider, CurrentSelectionState>(
+          create: (context) => CurrentSelectionProvider(),
         ),
       ],
       child: MaterialApp(
