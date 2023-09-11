@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sportz_interactive_assignment/models/match_parent.dart';
+import 'package:sportz_interactive_assignment/screens/team_info_page.dart';
 
 import '../constants/constants.dart';
 import '../providers/current_selection/current_selection_provider.dart';
@@ -69,6 +70,8 @@ class _HomePageState extends State<HomePage> {
                         onTap: () async {
                           await _currentSelectionProvider.setCurrentSelection(
                               value: state.matchDetailsList[index]);
+
+                          if(context.mounted) Navigator.of(context).pushNamed(TeamInfoPage.routeName);
                         },
                         child: MatchInfoCard(
                           matchInfo: state.matchDetailsList[index].matchdetail,

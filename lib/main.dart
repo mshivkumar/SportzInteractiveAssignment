@@ -7,6 +7,7 @@ import 'providers/current_selection/current_selection_provider.dart';
 import 'providers/match_details_list/match_details_list_provider.dart';
 import 'repositories/match_repository.dart';
 import 'screens/home_page.dart';
+import 'screens/team_info_page.dart';
 import 'services/match_api_services.dart';
 
 void main() {
@@ -40,7 +41,11 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const HomePage(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const HomePage(),
+          TeamInfoPage.routeName: (context) => const TeamInfoPage(),
+        },
       ),
     );
   }
