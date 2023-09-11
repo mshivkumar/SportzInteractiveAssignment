@@ -69,12 +69,6 @@ flutter:
     - asset/images/live.gif
     - asset/images/sunny.png
     - asset/images/clear.png
-    - asset/images/ind_vs_nz_bg.jpg
-    - asset/images/india_icon.png
-    - asset/images/new_zealand_icon.png
-    - asset/images/nz_icon.png
-    - asset/images/pak_logo.png
-    - asset/images/sa_logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
